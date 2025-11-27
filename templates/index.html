@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Lost & Found</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Digital Lost & Found</h1>
+            <p>Upload an image to find matching items</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="itemType">Item Type</label>
+                        <select id="itemType" name="itemType" required>
+                            <option value="">Select...</option>
+                            <option value="lost">Lost Item</option>
+                            <option value="found">Found Item</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName" name="itemName" placeholder="e.g., Wallet, Phone, Keys" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemColor">Color</label>
+                        <input type="text" id="itemColor" name="itemColor" placeholder="e.g., Black, Red, Blue" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemLocation">Location</label>
+                        <input type="text" id="itemLocation" name="itemLocation" placeholder="e.g., Library, Cafeteria, Parking Lot" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemImage">Upload Image</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+                            <label for="itemImage" class="file-upload-label">
+                                <span class="file-upload-text">Choose Image</span>
+                                <span class="file-upload-icon">📷</span>
+                            </label>
+                        </div>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn">
+                        <span id="submitText">Search for Matches</span>
+                        <span id="submitLoader" class="loader" style="display: none;"></span>
+                    </button>
+                </form>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2>Matching Results</h2>
+                <div id="resultsContainer" class="results-container"></div>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+
+
