@@ -1,15 +1,9 @@
-1R# LostAndFound
+# LostAndFound
 
-Short description: A Flask app for registering lost and found items on campus.
-
-## Run locally
-1. Create a virtualenv:
-   python -m venv venv
-   source venv/bin/activate   # on Windows: venv\Scripts\activate
-2. Install dependencies:
-   pip install -r requirements.txt
-3. Start the server:
-   gunicorn app:app --bind 127.0.0.1:5000
-   # or for development:
-   python app.py
-
+Run locally:
+1. python -m venv venv
+2. source venv/bin/activate    # Windows: venv\Scripts\activate
+3. pip install -r requirements.txt
+4. gunicorn app:app --bind 127.0.0.1:5000
+# or for dev:
+# python app.py
